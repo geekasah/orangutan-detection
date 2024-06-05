@@ -7,7 +7,7 @@ from keras.preprocessing import image
 from tflite_runtime.interpreter import Interpreter
 
 # Load the TensorFlow Lite model
-path_to_model_saved = "path/to/model.tflite"
+path_to_model_saved = "orang_utan_detection_3_freeze.tflite"
 interpreter = Interpreter(model_path=path_to_model_saved)
 interpreter.allocate_tensors()
 
