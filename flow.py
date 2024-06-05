@@ -16,8 +16,8 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Load and preprocess the image
-folder_input = "input/folder"
-folder_output = "output/folder"
+folder_input = "media/to_test"
+folder_output = "media/tested"
 file_paths = [os.path.join(folder_input, file_name) for file_name in os.listdir(folder_input)]
 
 for img_path in tqdm.tqdm(file_paths):
