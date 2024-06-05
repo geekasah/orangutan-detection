@@ -6,3 +6,4 @@ tensorboard-data-server==0.7.2
 tensorflow==2.16.1
 tflite-runtime==2.14.0
 tqdm==4.66.4
+simplejson==3.19.2
