@@ -40,7 +40,7 @@ for img_path in tqdm.tqdm(file_paths):
     classified_as = 'no orang utan detected'
   else:
     classified_as = 'orangutan detected'
-
+  print(f"image path {img_path}, classified as: {classified_as})
   # To show the picture
   '''print(f"Prediction: {classified_as}, File: {img_path}")
   img = image.load_img(img_path)
