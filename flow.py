@@ -19,6 +19,7 @@ output_details = interpreter.get_output_details()
 folder_input = "media/to_test/"
 folder_output = "media/tested/"
 file_paths = [os.path.join(folder_input, file_name) for file_name in os.listdir(folder_input)]
+dict = {}
 
 for img_path in tqdm.tqdm(file_paths):
   img = tf.keras.preprocessing.image.load_img(img_path, target_size=(224, 224))
@@ -40,7 +41,7 @@ for img_path in tqdm.tqdm(file_paths):
     classified_as = 'no orang utan detected'
   else:
     classified_as = 'orangutan detected'
-  print(f"image path {img_path}, classified as: {classified_as})
+  dict[img_path] = classified_as
   # To show the picture
   '''print(f"Prediction: {classified_as}, File: {img_path}")
   img = image.load_img(img_path)
@@ -52,3 +53,6 @@ for img_path in tqdm.tqdm(file_paths):
   parent_dir, file_name = os.path.split(img_path)
   new_path = os.path.join(folder_output, classified_as+' '+file_name)
   os.rename(img_path, new_path)
+
+with open('log.txt','a') as File:
+    File.append(dict)
