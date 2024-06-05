@@ -26,4 +26,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Image Processing Script
-        run: python flow.py
+        run: python flow.py >> output.log 2>&1
+
+      - name: Upload Log File
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-log
+          path: output.log
