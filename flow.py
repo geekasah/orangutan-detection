@@ -4,11 +4,10 @@ import os
 import matplotlib.pyplot as plt
 import tqdm
 import logging
-import datetime
 from keras.preprocessing import image
 from tflite_runtime.interpreter import Interpreter
 
-logging.basicConfig(filename=f'{datetime.datetime.now()}.log', level=logging.INFO,
+logging.basicConfig(filename='output.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 def process_image(image_path, classified_as):
     # Your image processing code here
@@ -18,7 +17,6 @@ def process_image(image_path, classified_as):
             logging.info(f"  Successfully processed {image_path}, classified as {classified_as}")
     except Exception as e:
         logging.error(f"Error processing image {image_path}: {e}")
-      
 def main():
   # Load the TensorFlow Lite model
   path_to_model_saved = "orang_utan_detection_3_freeze.tflite"
@@ -67,9 +65,6 @@ def main():
     parent_dir, file_name = os.path.split(img_path)
     new_path = os.path.join(folder_output, classified_as+' '+file_name)
     os.rename(img_path, new_path)
-  
-  with open('log.txt','a') as File:
-      File.write(json.dumps(dict))
 if name == "__main__":
   main()
 
