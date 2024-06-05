@@ -1,7 +1,6 @@
 import numpy as np
 import tensorflow as tf
 import os
-import cv2
 import matplotlib.pyplot as plt
 import tqdm
 from keras.preprocessing import image
