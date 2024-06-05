@@ -3,6 +3,7 @@ import tensorflow as tf
 import os
 import matplotlib.pyplot as plt
 import tqdm
+import json
 from keras.preprocessing import image
 from tflite_runtime.interpreter import Interpreter
 
@@ -55,4 +56,4 @@ for img_path in tqdm.tqdm(file_paths):
   os.rename(img_path, new_path)
 
 with open('log.txt','a') as File:
-    File.append(dict)
+    File.write(json.dumps(dict))
